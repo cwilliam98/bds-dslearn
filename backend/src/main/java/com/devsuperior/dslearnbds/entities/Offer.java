@@ -33,11 +33,9 @@ private static final long serialVersionUID = 1L;
 	private List<Resource> resources = new ArrayList<>();
 	
 	public Offer() {
-		super();
 	}
 	
 	public Offer(Long id, String edition, Instant startMoment, Instant endMoment, Course course) {
-		super();
 		this.id = id;
 		this.edition = edition;
 		this.startMoment = startMoment;

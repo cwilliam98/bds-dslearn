@@ -27,11 +27,9 @@ private static final long serialVersionUID = 1L;
 	private List<Offer> offers = new ArrayList<>();
 	
 	public Course() {
-		super();
 	}
 	
 	public Course(Long id, String name, String imgUri, String imgGrayUri) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.imgUri = imgUri;
