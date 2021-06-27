@@ -2,8 +2,6 @@ package com.devsuperior.dslearnbds.dto;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotEmpty;
-
 import com.devsuperior.dslearnbds.entities.User;
 
 public class UserDTO implements Serializable{
