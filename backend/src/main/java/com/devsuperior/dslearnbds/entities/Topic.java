@@ -28,38 +28,32 @@ public class Topic implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
-
 	@Column(columnDefinition = "TEXT")
 	private String body;
-
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant moment;
-
 	@ManyToOne
 	@JoinColumn(name = "author_id")
 	private User author;
-
 	@ManyToOne
 	@JoinColumn(name = "offer_id")
 	private Offer offer;
-
 	@ManyToOne
 	@JoinColumn(name = "lesson_id")
 	private Lesson lesson;
-	
 	@ManyToOne
 	@JoinColumn(name = "reply_id")
 	private Reply answer;
-
 	@ManyToMany
 	@JoinTable(name = "tb_topic_likes",
 		joinColumns = @JoinColumn(name = "topic_id"),
 		inverseJoinColumns = @JoinColumn(name = "user_id"))	
 	private Set<User> likes = new HashSet<>();
-	
 	@OneToMany(mappedBy = "topic")
 	private List<Reply> replies = new ArrayList<>();
-
+	@OneToMany(mappedBy = "offer")
+	private List<Topic> topics = new ArrayList<>();	
+	
 	public Topic() {
 	}
 
@@ -144,6 +138,10 @@ public class Topic implements Serializable {
 
 	public List<Reply> getReplies() {
 		return replies;
+	}
+	
+	public List<Topic> getTopics() {
+		return topics;
 	}
 
 	@Override
